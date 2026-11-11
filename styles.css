@@ -6,7 +6,7 @@
   --line: #262b31;
   --text: #e8e6e1;
   --muted: #9aa0a6;
-  --accent: #c9a36a;      /* латунь/бронза — материал фасадов избранного проекта */
+  --accent: #c9a36a;      /* латунь/бронза — материал фасадов ЖК на Молодогвардейской */
   --accent2: #e3c795;
   --shadow: 0 18px 50px rgba(0, 0, 0, .45);
   --radius: 4px;
@@ -110,6 +110,20 @@ a { color: var(--accent2); text-decoration: none; }
   text-wrap: balance; max-width: 12ch;
 }
 .hero-sub { margin-top: 22px; max-width: 560px; color: #cfd2d5; font-size: 18px; }
+.hero-cta {
+  margin-top: 34px; display: flex; flex-wrap: wrap; gap: 12px;
+}
+.btn {
+  display: inline-flex; align-items: center; justify-content: center;
+  padding: 15px 32px; border-radius: 2px;
+  font-size: 13px; letter-spacing: .14em; text-transform: uppercase;
+  border: 1px solid var(--accent);
+  transition: background .2s, color .2s, border-color .2s, transform .2s;
+}
+.btn-solid { background: var(--accent); color: #17130c; font-weight: 600; }
+.btn-solid:hover { background: var(--accent2); border-color: var(--accent2); transform: translateY(-2px); }
+.btn-ghost { color: var(--accent2); background: rgba(15, 17, 19, .38); }
+.btn-ghost:hover { background: rgba(15, 17, 19, .72); transform: translateY(-2px); }
 .hero-metrics {
   margin-top: 44px; display: flex; flex-wrap: wrap; gap: 40px;
 }
@@ -132,46 +146,6 @@ a { color: var(--accent2); text-decoration: none; }
   font-size: clamp(30px, 4.4vw, 52px); line-height: 1.12; text-wrap: balance;
 }
 .sec-head p { margin-top: 16px; color: var(--muted); font-size: 17px; }
-
-/* ---------- Избранный проект ---------- */
-.featured-top {
-  display: grid; grid-template-columns: 1.4fr .9fr; gap: 40px; align-items: end;
-  margin-bottom: 56px;
-}
-.badges { display: flex; flex-wrap: wrap; gap: 10px; margin: 18px 0 14px; }
-.badge {
-  border: 1px solid var(--accent); color: var(--accent2);
-  padding: 7px 14px; font-size: 12px; letter-spacing: .12em; text-transform: uppercase;
-  border-radius: 2px;
-}
-.badge.solid { background: var(--accent); color: #17130c; font-weight: 600; }
-.featured-sub { color: var(--muted); }
-.facts { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); }
-.fact { background: var(--bg2); padding: 22px 24px; }
-.fact b { display: block; font-family: var(--serif); font-weight: 400; font-size: 34px; color: var(--accent2); }
-.fact span { font-size: 12px; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); }
-
-.fg-group { margin-bottom: 56px; }
-.fg-title {
-  font-family: var(--serif); font-weight: 400; font-size: 24px; color: var(--text);
-  margin-bottom: 20px; display: flex; align-items: center; gap: 16px;
-}
-.fg-title::after { content: ''; flex: 1; height: 1px; background: var(--line); }
-.fg-grid {
-  display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px;
-}
-.fg-item {
-  position: relative; border-radius: var(--radius); overflow: hidden;
-  background: var(--card); cursor: zoom-in; border: 1px solid var(--line);
-}
-.fg-item.wide { grid-column: 1 / -1; }
-.fg-item img { width: 100%; height: 100%; object-fit: cover; transition: transform .5s ease; }
-.fg-item:hover img { transform: scale(1.025); }
-.fg-item figcaption {
-  position: absolute; inset: auto 0 0 0; padding: 26px 16px 12px;
-  background: linear-gradient(transparent, rgba(10, 11, 12, .88));
-  color: #d9dbdd; font-size: 13px; letter-spacing: .02em;
-}
 
 /* ---------- Галерея проектов ---------- */
 .filters { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 34px; }
@@ -202,6 +176,10 @@ a { color: var(--accent2); text-decoration: none; }
   margin-top: 12px; color: var(--accent2); font-size: 11.5px;
   letter-spacing: .1em; text-transform: uppercase;
 }
+.built-mark {
+  display: inline-block; margin-top: 12px;
+  color: #9cc99a; font-size: 11.5px; letter-spacing: .12em; text-transform: uppercase;
+}
 
 /* ---------- Обо мне ---------- */
 .about { display: grid; grid-template-columns: 1.15fr .85fr; gap: 56px; }
@@ -223,6 +201,23 @@ a { color: var(--accent2); text-decoration: none; }
 .af b { display: block; font-size: 12px; letter-spacing: .16em; text-transform: uppercase; color: var(--accent); margin-bottom: 6px; font-weight: 600; }
 .af span { color: #d4d6d9; font-size: 15px; }
 
+/* Хронология работы */
+.jobs {
+  grid-column: 1 / -1; margin-top: 60px;
+  display: grid; gap: 1px; background: var(--line); border: 1px solid var(--line);
+}
+.job {
+  display: grid; grid-template-columns: 170px 1fr; gap: 22px; align-items: baseline;
+  background: var(--bg2); padding: 15px 24px;
+}
+.job .period {
+  font-family: var(--serif); color: var(--accent2); font-size: 16px;
+  letter-spacing: .04em; white-space: nowrap;
+}
+.job .j-body b { font-weight: 500; font-size: 15.5px; }
+.job .j-city { color: var(--muted); font-size: 13px; margin-left: 10px; }
+.job .j-body p { color: #d4d6d9; font-size: 14px; margin-top: 2px; }
+
 /* ---------- Контакты ---------- */
 .contact { text-align: center; }
 .contact .big-mail {
@@ -242,6 +237,10 @@ a { color: var(--accent2); text-decoration: none; }
   color: var(--muted); font-size: 14px; transition: color .2s, border-color .2s;
 }
 a.ms:hover { color: var(--accent2); border-color: var(--accent); }
+.dl-row {
+  margin-top: 42px; display: flex; flex-wrap: wrap; gap: 12px;
+  justify-content: center;
+}
 
 /* ---------- Подвал ---------- */
 .footer { border-top: 1px solid var(--line); padding: 34px 0; color: var(--muted); font-size: 13px; }
@@ -314,17 +313,18 @@ a.ms:hover { color: var(--accent2); border-color: var(--accent); }
 /* ---------- Адаптив ---------- */
 @media (max-width: 1100px) {
   .grid { grid-template-columns: repeat(2, 1fr); }
-  .featured-top { grid-template-columns: 1fr; align-items: start; }
 }
 @media (max-width: 860px) {
   .about { grid-template-columns: 1fr; }
   .nav { display: none; }
   .burger { display: flex; }
   .hero-in { padding: 120px 0 56px; }
+  .hero-cta { margin-top: 28px; }
+  .hero-cta .btn { padding: 13px 24px; flex: 1 1 auto; }
   .hero-metrics { gap: 26px; }
   .metric b { font-size: 27px; }
-  .fg-grid { grid-template-columns: 1fr; }
-  .facts { grid-template-columns: repeat(2, 1fr); }
+  .job { grid-template-columns: 1fr; gap: 4px; }
+  .jobs { margin-top: 44px; }
   .section { padding: 68px 0; }
   .lb-nav { display: none; }
   .ms-label { flex-basis: 100%; }

@@ -7,57 +7,6 @@ const THUMB = 'img/thumb/';
 
 const img = (name, caption) => ({ src: name, caption: caption || '' });
 
-/* Избранный проект: ЖК на Молодогвардейской */
-const FEATURED = {
-  title: 'ЖК на Молодогвардейской',
-  subtitle: 'Многоквартирный жилой дом с подземной автостоянкой · Москва, ЗАО, район Кунцево',
-  role: 'ГАП',
-  stage: 'АГК-доработка, разработка стадии П',
-  facts: [
-    { value: '32', unit: 'этажа' },
-    { value: '618', unit: 'квартир' },
-    { value: '329', unit: 'машино-мест' },
-    { value: '2,09', unit: 'га участка' },
-  ],
-  groups: [
-    {
-      title: 'Архитектурная визуализация',
-      images: [
-        img('mg-p16-1.jpg', 'Перспективное изображение № 1'),
-        img('mg-p17-1.jpg', 'Перспективное изображение № 2'),
-        img('mg-p17-2.jpg', 'Перспективное изображение № 3'),
-        img('mg-p18-1.jpg', 'Перспективное изображение № 4'),
-        img('mg-p18-2.jpg', 'Перспективное изображение № 5'),
-        img('mg-p12-1.jpg', 'Перспективное изображение № 6'),
-      ],
-    },
-    {
-      title: 'Фасады и материалы',
-      images: [
-        img('mg-page28.webp', 'Схема фасада с указанием материалов'),
-        img('mg-page29.webp', 'Схема фасада с указанием материалов'),
-      ],
-    },
-    {
-      title: 'Архитектурно-художественное освещение',
-      images: [img('mg-p24-1.jpg', 'Освещение фасадов здания')],
-    },
-    {
-      title: 'Генплан и транспортная организация',
-      images: [
-        img('mg-page31.webp', 'Схема планировочной организации участка (СПЗУ)'),
-        img('mg-page32.webp', 'Схема транспортной организации, две очереди строительства'),
-      ],
-    },
-    {
-      title: 'Контекст',
-      images: [
-        img('mg-p04-1.jpg', 'Фотомонтаж в существующей застройке'),
-      ],
-    },
-  ],
-};
-
 const CATS = [
   { id: 'all', label: 'Все' },
   { id: 'residential', label: 'Жилые' },
@@ -68,17 +17,30 @@ const CATS = [
 
 const PROJECTS = [
   {
+    id: 'molodogvardeyskaya', cat: 'residential',
+    title: 'ЖК на Молодогвардейской',
+    place: 'ул. Молодогвардейская, вл. 12 · Москва, ЗАО, район Кунцево',
+    desc: 'Многоквартирный жилой дом с подземной автостоянкой: 32 этажа, 618 квартир, 329 машино-мест, двор над паркингом. Перепад по участку 4,5 м. Доработка концепции, согласование АГК, стадия П.',
+    stage: 'АГК-доработка, разработка стадии П · 2026', role: 'ГАП',
+    images: [
+      img('mg-p16-1.jpg'), img('mg-p17-1.jpg'), img('mg-p17-2.jpg'),
+      img('mg-p18-1.jpg'), img('mg-p18-2.jpg'), img('mg-p12-1.jpg'),
+      img('mg-page28.webp'), img('mg-page29.webp'), img('mg-p24-1.jpg'),
+      img('mg-page31.webp'), img('mg-page32.webp'), img('mg-p04-1.jpg'),
+    ],
+  },
+  {
     id: 'trinklera', cat: 'residential',
     title: 'Жилой дом с торговыми помещениями',
     place: 'ул. Тринклера, Харьков',
     desc: 'Многоэтажный жилой дом со встроено-пристроенными помещениями торговли и подземной стоянкой.',
-    stage: '', images: [img('pf-p03-1.jpg'), img('pf-p03-2.jpg')],
+    stage: 'Стадия Р', images: [img('pf-p03-1.jpg'), img('pf-p03-2.jpg')],
   },
   {
     id: 'moscow-rd', cat: 'residential',
     title: 'Рабочая документация АР · жилые комплексы Москвы',
     place: 'ул. Иловайская, вл. 2Б и ул. Мосфильмовская, Москва',
-    desc: 'Кладочный план 1 этажа, план подземного этажа на отм. −9,900 и разрез 2-2. Корпуса 13.1–13.4 с подземной автостоянкой на 188 машино-мест. ООО «Зак Девелопмент», 2022.',
+    desc: 'Кладочный план 1 этажа и разрез 2-2 — корпуса 13.1–13.4 (17–33 этажа) с подземной автостоянкой на 188 машино-мест, ул. Иловайская, вл. 2Б. План подземного этажа на отм. −9,900 — ЖК на ул. Мосфильмовской. ООО «Зак Девелопмент», 2022.',
     stage: 'Стадия Р', role: 'Разработка листов АР',
     images: [img('pf-page04.webp', 'Кладочный план 1 этажа на отм. +0,260'), img('pf-page05.webp', 'Кладочный план 1 этажа — фрагмент'), img('pf-page06.webp', 'Разрез 2-2')],
   },
@@ -87,7 +49,7 @@ const PROJECTS = [
     title: 'Офисный центр',
     place: 'ул. Ахсарова, 4/6А, Харьков',
     desc: 'Реконструкция нежилых помещений с надстройкой и пристройкой.',
-    stage: '', images: [img('pf-p07-1.jpg'), img('pf-p07-2.jpg'), img('pf-p07-3.jpg')],
+    stage: 'Стадия Р', images: [img('pf-p07-1.jpg'), img('pf-p07-2.jpg'), img('pf-p07-3.jpg')],
   },
   {
     id: 'derevyanko', cat: 'residential',
@@ -108,7 +70,7 @@ const PROJECTS = [
     title: 'Торгово-офисный центр',
     place: 'ул. Артёма, Харьков',
     desc: 'Проект от стадии П до реализации; на слайдах — визуализация и реализация.',
-    stage: 'Стадии П, Р · авторский надзор', images: [img('pf-p10-1.jpg'), img('pf-p10-2.jpg'), img('pf-p10-3.jpg'), img('pf-p10-4.jpg')],
+    stage: 'Стадии П, Р · авторский надзор · построен', built: true, images: [img('pf-p10-1.jpg'), img('pf-p10-2.jpg'), img('pf-p10-3.jpg'), img('pf-p10-4.jpg')],
   },
   {
     id: 'lermontova', cat: 'residential',
@@ -144,7 +106,7 @@ const PROJECTS = [
     title: 'Жилой дом',
     place: 'ул. Радянская, Ирпень',
     desc: 'Разработка всех стадий проекта, авторский надзор. На слайдах — визуализация и реализация.',
-    stage: 'Все стадии · авторский надзор · реализация',
+    stage: 'Все стадии · авторский надзор · построен', built: true,
     images: [img('pf-p15-1.jpg'), img('pf-p15-2.jpg'), img('pf-p15-3.jpg'), img('pf-p15-4.jpg')],
   },
   {
@@ -216,7 +178,7 @@ const PROJECTS = [
     title: 'Жилой дом',
     place: 'ул. Львовская, Ирпень',
     desc: 'На слайдах — проект и реализация.',
-    stage: 'Стадия Р · авторский надзор · реализация',
+    stage: 'Стадия Р · авторский надзор · построен', built: true,
     images: [img('pf-p25-1.jpg'), img('pf-p25-2.jpg'), img('pf-p25-3.jpg'), img('pf-p25-4.jpg'), img('pf-p25-5.jpg')],
   },
   {
@@ -275,47 +237,6 @@ const PROJECTS = [
 const $ = (s, el) => (el || document).querySelector(s);
 const $$ = (s, el) => Array.from((el || document).querySelectorAll(s));
 
-function renderFeatured() {
-  const root = $('#featured-gallery');
-  FEATURED.groups.forEach((g) => {
-    const sec = document.createElement('section');
-    sec.className = 'fg-group reveal';
-    const h = document.createElement('h3');
-    h.className = 'fg-title';
-    h.textContent = g.title;
-    sec.appendChild(h);
-    const grid = document.createElement('div');
-    grid.className = 'fg-grid';
-    g.images.forEach((im) => {
-      const fig = document.createElement('figure');
-      fig.className = 'fg-item';
-      fig.tabIndex = 0;
-      const isWide = /page|p20|p21|p22/.test(im.src);
-      if (isWide) fig.classList.add('wide');
-      fig.innerHTML =
-        '<img loading="lazy" alt="' + escapeHtml(im.caption || FEATURED.title) + '" ' +
-        'src="' + THUMB + im.src.replace(/\.webp$/, '.jpg') + '" ' +
-        'srcset="' + IMG + im.src + ' 1600w, ' + THUMB + im.src.replace(/\.(webp|jpg)$/, '.jpg') + ' 800w" sizes="(max-width: 900px) 92vw, 46vw">';
-      if (im.caption) {
-        const fc = document.createElement('figcaption');
-        fc.textContent = im.caption;
-        fig.appendChild(fc);
-      }
-      fig.addEventListener('click', () => openLightbox(FEATURED.groups.flatMap((x) => x.images), g.images.indexOf(im) + countBefore(FEATURED.groups, g), FEATURED.title));
-      fig.addEventListener('keydown', (e) => { if (e.key === 'Enter') fig.click(); });
-      grid.appendChild(fig);
-    });
-    sec.appendChild(grid);
-    root.appendChild(sec);
-  });
-}
-
-function countBefore(groups, g) {
-  let n = 0;
-  for (const x of groups) { if (x === g) break; n += x.images.length; }
-  return n;
-}
-
 function renderFilters() {
   const bar = $('#filters');
   CATS.forEach((c, i) => {
@@ -345,6 +266,7 @@ function renderGrid(cat) {
       '<div class="card-img"><img loading="lazy" alt="' + escapeHtml(p.title) + '" src="' + THUMB + cover + '" srcset="' + IMG + coverFull + ' 1600w, ' + THUMB + cover + ' 800w" sizes="(max-width: 640px) 92vw, (max-width: 1100px) 44vw, 30vw"></div>' +
       '<div class="card-body"><h3>' + escapeHtml(p.title) + '</h3>' +
       '<p class="place">' + escapeHtml(p.place) + '</p>' +
+      (p.built ? '<span class="built-mark">● Построен</span>' : '') +
       (p.stage ? '<p class="stage">' + escapeHtml(p.stage) + '</p>' : '') + '</div>';
     card.addEventListener('click', () => openProject(p));
     grid.appendChild(card);
@@ -492,7 +414,6 @@ function startDust() {
 /* ---------- Инициализация ---------- */
 
 document.addEventListener('DOMContentLoaded', () => {
-  renderFeatured();
   renderFilters();
   renderGrid('all');
 
